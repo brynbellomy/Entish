@@ -1,0 +1,18 @@
+{
+  "name": "SwiftFlatUIColors",
+  "version": "0.0.1",
+  "license": "WTFPL",
+  "summary": "Flat UI Color palette helpers in Swift",
+  "authors": {
+    "bryn austin bellomy": "bryn.bellomy@gmail.com"
+  },
+  "homepage": "https://github.com/brynbellomy/SwiftFlatUIColors",
+  "platforms": {
+    "osx": "10.10"
+  },
+  "source_files": "*.swift",
+  "source": {
+    "git": "https://github.com/brynbellomy/SwiftFlatUIColors.git",
+    "tag": "0.0.1"
+  }
+}

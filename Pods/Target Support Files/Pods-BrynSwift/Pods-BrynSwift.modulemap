@@ -1,0 +1,6 @@
+framework module BrynSwift {
+  umbrella header "Pods-BrynSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

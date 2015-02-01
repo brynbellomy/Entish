@@ -1,0 +1,6 @@
+framework module SwiftFlatUIColors {
+  umbrella header "Pods-SwiftFlatUIColors-umbrella.h"
+
+  export *
+  module * { export * }
+}

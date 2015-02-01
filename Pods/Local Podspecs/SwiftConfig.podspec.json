@@ -1,0 +1,43 @@
+{
+  "name": "SwiftConfig",
+  "version": "0.0.1",
+  "license": {
+    "type": "WTFPL",
+    "file": "LICENSE.md"
+  },
+  "summary": "Layered config framework to simplify complex initialization/loading of objects and values.",
+  "authors": {
+    "bryn austin bellomy": "bryn.bellomy@gmail.com"
+  },
+  "homepage": "https://github.com/brynbellomy/SwiftConfig",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "source_files": [
+    "src/*.swift",
+    "src/**/*.swift"
+  ],
+  "requires_arc": true,
+  "dependencies": {
+    "Funky": [
+      "0.1.2"
+    ],
+    "SwiftDataStructures": [
+
+    ],
+    "SwiftBitmask": [
+
+    ],
+    "LlamaKit": [
+
+    ],
+    "SwiftyJSON": [
+
+    ]
+  },
+  "source": {
+    "git": "https://github.com/brynbellomy/SwiftConfig.git",
+    "tag": "0.0.1"
+  }
+}
