@@ -8,20 +8,45 @@
 
 import Cocoa
 import XCTest
+import Entish
+import SwiftConfig
+import SwiftBitmask
 
-class EntishTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+class EntishTests: XCTestCase
+{
+    func testBuildPositionComponent() {
+        let config = Config()
+        let position = PositionComponent.build(config: config)
+        XCTAssertTrue(position.isSuccess())
+        XCTAssert(position.value()?.position == CGPointZero)
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
+
     func testExample()
     {
+        let dict = [
+            "entity templates": [
+                [
+                    "name": "TestEntity",
+                    "components": [
+                        ["system": "position"],
+                        ["system": "node"],
+                    ],
+                ]
+            ]
+        ]
+        let config = Config(dictionary:dict)
+        var factory = EntityFactory()
+        factory.configure(config)
+        let maybeEnt = factory.createEntityFromTemplate("TestEntity")
+        if let err = maybeEnt.error() {
+            NSLog("EntityFactory error: \(err.localizedDescription)")
+        }
+        XCTAssertTrue(maybeEnt.isSuccess())
+
+        if let (entity, components) = maybeEnt.value() {
+            XCTAssertEqual(entity.componentBitmask, Systems.Position | .Node)
+        }
     }
 }
+

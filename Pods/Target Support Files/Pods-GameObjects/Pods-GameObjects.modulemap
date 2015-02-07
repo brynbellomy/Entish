@@ -1,0 +1,6 @@
+framework module GameObjects {
+  umbrella header "Pods-GameObjects-umbrella.h"
+
+  export *
+  module * { export * }
+}

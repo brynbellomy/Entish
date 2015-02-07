@@ -50,8 +50,10 @@ code_sign() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'BrynSwift.framework'
   install_framework 'Funky.framework'
+  install_framework 'GameObjects.framework'
   install_framework 'LibYAML.framework'
   install_framework 'LlamaKit.framework'
+  install_framework 'Signals.framework'
   install_framework 'Starscream.framework'
   install_framework 'SwiftBitmask.framework'
   install_framework 'SwiftConfig.framework'
@@ -64,8 +66,10 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'BrynSwift.framework'
   install_framework 'Funky.framework'
+  install_framework 'GameObjects.framework'
   install_framework 'LibYAML.framework'
   install_framework 'LlamaKit.framework'
+  install_framework 'Signals.framework'
   install_framework 'Starscream.framework'
   install_framework 'SwiftBitmask.framework'
   install_framework 'SwiftConfig.framework'
