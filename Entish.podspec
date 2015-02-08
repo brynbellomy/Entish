@@ -6,6 +6,7 @@ Pod::Spec.new do |s|
   s.authors = { 'bryn austin bellomy' => 'bryn.bellomy@gmail.com' }
   s.license = { :type => 'WTFPL', :file => 'LICENSE.md' }
   s.homepage = 'https://github.com/brynbellomy/Entish'
+  s.documentation_url = 'https://brynbellomy.github.com/Entish'
 
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
