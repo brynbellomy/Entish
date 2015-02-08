@@ -1,0 +1,259 @@
+ComponentFactory.swift
+	mutating func createComponent(config:Config) -> Result<IComponent>
+	public class ComponentFactory: IComponentFactory
+	public init()
+	public func createComponent(config:Config) -> Result<IComponent>
+	mutating func createComponent(config:Config) -> Result<IComponent>
+	public class ComponentFactory: IComponentFactory
+	public init()
+	public func createComponent(config:Config) -> Result<IComponent>
+Entish.Common.swift
+	public enum Systems: String
+	public enum Systems : String
+	public var bitmaskValue: UInt32
+	public static var autoBitmaskValues: [Systems]
+	public enum Systems : String
+	public static func fromConfigValue(configValue:String) -> Systems?
+	public var configValue: String
+	public enum Systems: String
+	public enum Systems : String
+	public var bitmaskValue: UInt32
+	public static var autoBitmaskValues: [Systems]
+	public enum Systems : String
+	public static func fromConfigValue(configValue:String) -> Systems?
+	public var configValue: String
+Entity.swift
+	public struct Entity
+	public static func newID() -> EntityID
+	public let uuid: EntityID
+	public let componentBitmask: Bitmask<Systems>
+	public init(uuid u:EntityID, componentBitmask bitmask:Bitmask<Systems>)
+	public func hasComponent(system:Systems) -> Bool
+	public struct Entity
+	public static func newID() -> EntityID
+	public let uuid: EntityID
+	public let componentBitmask: Bitmask<Systems>
+	public init(uuid u:EntityID, componentBitmask bitmask:Bitmask<Systems>)
+	public func hasComponent(system:Systems) -> Bool
+EntityController.swift
+	public private(set) var registeredSystems = [Systems]()
+	public private(set) var entities = List<Entity>()
+	public private(set) var systems  = Controller<Systems, ISystem>()
+	public var entityFactory = EntityFactory()
+	public struct Signals
+	public let update = Signal<NSTimeInterval>()
+	public private(set) var registeredSystems = [Systems]()
+	public private(set) var entities = List<Entity>()
+	public private(set) var systems  = Controller<Systems, ISystem>()
+	public var entityFactory = EntityFactory()
+	public struct Signals
+	public let update = Signal<NSTimeInterval>()
+ExistentialComponent.swift
+	var existentialComponent: ExistentialComponent
+	public class func build(#config:Config) -> Result<ExistentialComponent>
+	public let systemID: Systems = .Existential
+	public var entityID: Entity.EntityID
+	public var description:      String
+	public var debugDescription: String
+	var existentialComponent: ExistentialComponent
+	public class func build(#config:Config) -> Result<ExistentialComponent>
+	public let systemID: Systems = .Existential
+	public var entityID: Entity.EntityID
+	public var description:      String
+	public var debugDescription: String
+ExistentialSystem.swift
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+IComponent.swift
+	public protocol IComponent //: IConfigBuildable
+	var systemID: Systems
+	var entityID: Entity.EntityID
+	public protocol IComponent //: IConfigBuildable
+	var systemID: Systems
+	var entityID: Entity.EntityID
+ISystem.swift
+	public protocol ISystem: class
+	var systemID: Systems
+	func didMoveToController(controller:EntityController)
+	func willMoveFromController()
+	func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public protocol ISystemEntityView
+	var homeComponent: IComponent
+	var entityID: Entity.EntityID
+	public protocol ISystem: class
+	var systemID: Systems
+	func didMoveToController(controller:EntityController)
+	func willMoveFromController()
+	func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public protocol ISystemEntityView
+	var homeComponent: IComponent
+	var entityID: Entity.EntityID
+InputComponent.swift
+	public protocol IInputHandler: class
+	var description: String
+	func keyDown(theEvent:NSEvent) -> Bool
+	func keyUp(theEvent:NSEvent) -> Bool
+	func mouseUp(theEvent:NSEvent) -> Bool
+	func mouseDown(theEvent:NSEvent) -> Bool
+	func mouseDragged(theEvent:NSEvent) -> Bool
+	func mouseMoved(theEvent:NSEvent) -> Bool
+	public class InputComponent: NSResponder
+	public var debugLogKeyCodes = false
+	public private(set) var inputHandlers = UnderlyingCollection()
+	public func pushInputHandler(handler:IInputHandler)
+	public func popInputHandler() -> IInputHandler?
+	public func find(predicate: (IInputHandler) -> Bool) -> Index?
+	public func removeInputHandler(handler:IInputHandler)
+	public func removeAtIndex(index:Index) -> IInputHandler
+	public override func keyDown(theEvent:NSEvent)
+	public override func keyUp(theEvent:NSEvent)
+	public override func mouseUp(theEvent:NSEvent)
+	public override func mouseDown(theEvent:NSEvent)
+	public override func mouseDragged(theEvent:NSEvent)
+	public override func mouseMoved(theEvent:NSEvent)
+	public protocol IInputHandler: class
+	var description: String
+	func keyDown(theEvent:NSEvent) -> Bool
+	func keyUp(theEvent:NSEvent) -> Bool
+	func mouseUp(theEvent:NSEvent) -> Bool
+	func mouseDown(theEvent:NSEvent) -> Bool
+	func mouseDragged(theEvent:NSEvent) -> Bool
+	func mouseMoved(theEvent:NSEvent) -> Bool
+	public class InputComponent: NSResponder
+	public var debugLogKeyCodes = false
+	public private(set) var inputHandlers = UnderlyingCollection()
+	public func pushInputHandler(handler:IInputHandler)
+	public func popInputHandler() -> IInputHandler?
+	public func find(predicate: (IInputHandler) -> Bool) -> Index?
+	public func removeInputHandler(handler:IInputHandler)
+	public func removeAtIndex(index:Index) -> IInputHandler
+	public override func keyDown(theEvent:NSEvent)
+	public override func keyUp(theEvent:NSEvent)
+	public override func mouseUp(theEvent:NSEvent)
+	public override func mouseDown(theEvent:NSEvent)
+	public override func mouseDragged(theEvent:NSEvent)
+	public override func mouseMoved(theEvent:NSEvent)
+NodeSystem.swift
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func update(currentTime: NSTimeInterval)
+	public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func update(currentTime: NSTimeInterval)
+	public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+PhysicsSystem.swift
+	public struct PhysicsSystemSignals
+	public init()
+	public let didBeginContact = Signal<SKPhysicsContact>()
+	public let didEndContact   = Signal<SKPhysicsContact>()
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func didBeginContact(contact:SKPhysicsContact)
+	public func didEndContact(contact:SKPhysicsContact)
+	public struct PhysicsSystemSignals
+	public init()
+	public let didBeginContact = Signal<SKPhysicsContact>()
+	public let didEndContact   = Signal<SKPhysicsContact>()
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func didBeginContact(contact:SKPhysicsContact)
+	public func didEndContact(contact:SKPhysicsContact)
+PositionComponent.swift
+	public var description:      String
+	public var debugDescription: String
+	public var description:      String
+	public var debugDescription: String
+PositionSystem.swift
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func createComponentForEntity(entity:Entity, config:Config) -> Result<IComponent>
+	public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func createComponentForEntity(entity:Entity, config:Config) -> Result<IComponent>
+	public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+SpriteComponent.swift
+	public var description:      String
+	public var debugDescription: String
+	public var description:      String
+	public var debugDescription: String
+SpriteSystem.swift
+	public class SpriteSystem: ISystem
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public class SpriteSystem: ISystem
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+SystemBase.swift
+	public class SystemBase <C: IComponent, EntityView: ISystemEntityView>
+	public var entityController: EntityController?
+	public var entities = List<EntityView>()
+	public init()
+	public func addEntityView(entityView:EntityView)
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public class SystemBase <C: IComponent, EntityView: ISystemEntityView>
+	public var entityController: EntityController?
+	public var entities = List<EntityView>()
+	public init()
+	public func addEntityView(entityView:EntityView)
+	public func didMoveToController(controller:EntityController)
+	public func willMoveFromController()
+	public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
+	public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
+XEventComponent.swift
+	public class EventComponent
+	public init()
+	public func addEventHandler(eventHandler:EventHandler)
+	public func removeEventHandler(eventHandler:EventHandler)
+	public func update(timeSinceLastUpdate:NSTimeInterval)
+	public class EventHandler //: IComponent
+	public init()
+	public func didMoveToController()
+	public func willMoveFromController()
+	public class EventHandler
+	public func == (lhs:EventHandler, rhs:EventHandler) -> Bool
+	public class EventComponent
+	public init()
+	public func addEventHandler(eventHandler:EventHandler)
+	public func removeEventHandler(eventHandler:EventHandler)
+	public func update(timeSinceLastUpdate:NSTimeInterval)
+	public class EventHandler //: IComponent
+	public init()
+	public func didMoveToController()
+	public func willMoveFromController()
+	public class EventHandler
+	public func == (lhs:EventHandler, rhs:EventHandler) -> Bool

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EntityController Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script type="text/javascript">
+    window.jazzy = {'docset': false}
+    if (typeof window.dash != 'undefined') {
+      document.documentElement.className += ' dash'
+      window.jazzy.docset = true
+    }
+    if (navigator.userAgent.match(/xcode/i)) {
+      document.documentElement.className += ' xcode'
+      window.jazzy.docset = true
+    }
+    </script>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body id="reference" class="Swift">
+    <a name="//apple_ref/swift/Class/EntityController" class="dashAnchor"></a>
+    <a title="EntityController Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p class="header-text"><a href="../index.html">Entish Docs</a> (35% documented)</p>
+        <p id="header-links"><a href="https://github.com/brynbellomy/Entish"><img id="header-icon" src="../img/gh.png" height="16px" width="16px" />View on GitHub</a></p>
+        <p id="header-links"><a href="dash-feed://http%3A%2F%2Fsignals%2Eio%2Fdash%2Dfeed%2Exml"><img id="header-icon" src="../img/dash.png" height="16px" width="16px" />Install in Dash</a></p>
+      </div>
+    </header>
+    <section id="valence">
+      <div class="content-wrapper">
+        <p id="hierarchial_navigation">
+        <a href="../index.html" id="design_resources_link">Entish Reference</a>
+        <img id="carat" src="../img/carat.png" height="10px" width="6px" />
+        EntityController Class Reference
+        </p>
+      </div>
+    </section>
+    <div class="content-wrapper">
+      <nav class="book-parts">
+        <ul class="nav-parts">
+          <li class="part-name tasks">
+          <a href="../Classes.html">Classes</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Classes/ComponentFactory.html">ComponentFactory</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/EntityController.html">EntityController</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/EntityFactory.html">EntityFactory</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/EventComponent.html">EventComponent</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/EventHandler.html">EventHandler</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/ExistentialComponent.html">ExistentialComponent</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/ExistentialSystem.html">ExistentialSystem</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/InputComponent.html">InputComponent</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/NodeComponent.html">NodeComponent</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/NodeSystem.html">NodeSystem</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/PhysicsSystem.html">PhysicsSystem</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/PositionComponent.html">PositionComponent</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/PositionSystem.html">PositionSystem</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/SpriteComponent.html">SpriteComponent</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/SpriteSystem.html">SpriteSystem</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Classes/SystemBase.html">SystemBase</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part-name tasks">
+          <a href="../Enums.html">Enums</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Enums.html#/s:O6Entish7Systems">Systems</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part-name tasks">
+          <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Extensions.html#/s:C6Entish12EventHandler">EventHandler</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Extensions/ExistentialComponent.html">ExistentialComponent</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Extensions/PositionComponent.html">PositionComponent</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Extensions/SpriteComponent.html">SpriteComponent</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Extensions/Systems.html">Systems</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part-name tasks">
+          <a href="../Functions.html">Functions</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F6Entishoi2eeFTCS_12EventHandlerS0__Sb">==(_:_:)</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Functions.html#/s:F6Entish17getTypedComponentUS_10IComponent__FTGSaPS0___OS_7Systems_GSqQ__">getTypedComponent(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part-name tasks">
+          <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Protocols/IComponent.html">IComponent</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Protocols/IComponentFactory.html">IComponentFactory</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Protocols/IExistent.html">IExistent</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Protocols/IInputHandler.html">IInputHandler</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Protocols/ISystem.html">ISystem</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Protocols/ISystemEntityView.html">ISystemEntityView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="part-name tasks">
+          <a href="../Structs.html">Structs</a>
+            <ul class="nav-chapters">
+              <li class="nav-chapter">
+                <a href="../Structs/Entity.html">Entity</a>
+              </li>
+              <li class="nav-chapter">
+                <a href="../Structs/PhysicsSystemSignals.html">PhysicsSystemSignals</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="pixel-line"></div>
+      <div class="rubber-band-gap"></div>
+      <article class="chapter">
+      <a name="/"></a>
+        <h1 class="chapter-name">EntityController</h1>
+        <section>
+          <section class="section">
+            <p class="para">Manages a set of game systems that implement the <code>ISystem</code> protocol and the <code>Entity</code> objects that interact with those systems.</p>
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                
+                <a name="/Unnamed"></a>
+                
+              </div>
+              <ul class="task-group-list">
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:vC6Entish16EntityController17registeredSystemsGSaOS_7Systems_">
+                    <a name="//apple_ref/swift/Property/registeredSystems" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:vC6Entish16EntityController17registeredSystemsGSaOS_7Systems_">registeredSystems</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Undocumented</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:vC6Entish16EntityController8entitiesERR">
+                    <a name="//apple_ref/swift/Property/entities" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:vC6Entish16EntityController8entitiesERR">entities</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Undocumented</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:vC6Entish16EntityController7systemsERR">
+                    <a name="//apple_ref/swift/Property/systems" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:vC6Entish16EntityController7systemsERR">systems</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Undocumented</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:vC6Entish16EntityController13entityFactoryCS_13EntityFactory">
+                    <a name="//apple_ref/swift/Property/entityFactory" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:vC6Entish16EntityController13entityFactoryCS_13EntityFactory">entityFactory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Undocumented</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:VC6Entish16EntityController7Signals">
+                    <a name="//apple_ref/swift/Struct/Signals" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:VC6Entish16EntityController7Signals">Signals</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Undocumented</p>
+                        <a href="../Classes/EntityController/Signals.html" class="see-more">See more</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:vC6Entish16EntityController7signalsVS0_7Signals">
+                    <a name="//apple_ref/swift/Property/signals" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:vC6Entish16EntityController7signalsVS0_7Signals">signals</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">A struct containing the subscribable signals published by the controller. </p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">signals</span> <span class="o">=</span> <span class="kt">Signals</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FC6Entish16EntityControllercFMS0_FT_S0_">
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FC6Entish16EntityControllercFMS0_FT_S0_">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">The designated initializer.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FC6Entish16EntityController9configureERR">
+                    <a name="//apple_ref/swift/Method/configure(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FC6Entish16EntityController9configureERR">configure(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Initializes parameters from a loaded <code>Config</code> object.  You must call <code>configure()</code> before any attempting to build any <code>Entity</code> objects, as the configuration contains the templates used to instantiate your entities.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">configure</span><span class="p">(</span><span class="nv">config</span><span class="p">:</span><span class="kt">Config</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="parameters">
+                        <h4>Parameters</h4>
+                        <table class="graybox" border="0" cellspacing="0" cellpadding="5">
+                          <tbody>
+                            <tr>
+                              <td scope="row">
+                                <code>
+                                <em class="term">config</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div class="definition">
+                                  <p class="para">a <code>Config</code> object containing <code>Entity</code> templates</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FC6Entish16EntityController12createEntityERR">
+                    <a name="//apple_ref/swift/Method/createEntity(template:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FC6Entish16EntityController12createEntityERR">createEntity(template:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Creates a new <code>Entity</code> from the configuration template named by the <code>template</code> argument. The entity&rsquo;s components are all automatically instantiated and added to their respective systems.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createEntity</span><span class="p">(</span><span class="nv">#template</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">Entity</span><span class="o">.</span><span class="kt">EntityID</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="parameters">
+                        <h4>Parameters</h4>
+                        <table class="graybox" border="0" cellspacing="0" cellpadding="5">
+                          <tbody>
+                            <tr>
+                              <td scope="row">
+                                <code>
+                                <em class="term">template</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div class="definition">
+                                  <p class="para">The name of the template from which to instantiate the new <code>Entity</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="result-description">
+                        <h4>Return Value</h4>
+                        <p class="para">The <code>uuid</code> of the new <code>Entity</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FC6Entish16EntityController9addEntityERR">
+                    <a name="//apple_ref/swift/Method/addEntity(_:withComponents:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FC6Entish16EntityController9addEntityERR">addEntity(_:withComponents:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Adds the given entity to the controller and passes its components to their respective registered systems.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addEntity</span> <span class="p">(</span><span class="nv">entity</span><span class="p">:</span><span class="kt">Entity</span><span class="p">,</span> <span class="n">withComponents</span> <span class="nv">components</span><span class="p">:</span> <span class="p">[</span><span class="kt">IComponent</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FC6Entish16EntityController12removeEntityFS0_FCSo6NSUUIDGSqVS_6Entity_">
+                    <a name="//apple_ref/swift/Method/removeEntity(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FC6Entish16EntityController12removeEntityFS0_FCSo6NSUUIDGSqVS_6Entity_">removeEntity(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Removes the entity with the given ID from the controller and from all registered systems that it interacts with.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">removeEntity</span><span class="p">(</span><span class="nv">entityID</span><span class="p">:</span><span class="kt">EntityID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Entity</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FC6Entish16EntityController25entitiesWithAllComponentsERR">
+                    <a name="//apple_ref/swift/Method/entitiesWithAllComponents(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FC6Entish16EntityController25entitiesWithAllComponentsERR">entitiesWithAllComponents(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Returns an array containing all entities that contain <em>all</em> of the component types specified by the <code>components</code> bitmask.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">entitiesWithAllComponents</span> <span class="p">(</span><span class="nv">components</span><span class="p">:</span> <span class="kt">Bitmask</span><span class="o">&lt;</span><span class="kt">Systems</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Entity</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FC6Entish16EntityController25entitiesWithAnyComponentsERR">
+                    <a name="//apple_ref/swift/Method/entitiesWithAnyComponents(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FC6Entish16EntityController25entitiesWithAnyComponentsERR">entitiesWithAnyComponents(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Returns an array containing all entities that contain <em>any</em> of the component types specified by the <code>components</code> bitmask.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">entitiesWithAnyComponents</span> <span class="p">(</span><span class="nv">components</span><span class="p">:</span> <span class="kt">Bitmask</span><span class="o">&lt;</span><span class="kt">Systems</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Entity</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FC6Entish16EntityController14registerSystemFS0_FPS_7ISystem_T_">
+                    <a name="//apple_ref/swift/Method/registerSystem(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FC6Entish16EntityController14registerSystemFS0_FPS_7ISystem_T_">registerSystem(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Registers the provided system with the controller.  All systems must be registered before any entities that use them are created.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">registerSystem</span><span class="p">(</span><span class="nv">system</span><span class="p">:</span><span class="kt">ISystem</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FC6Entish16EntityController22unregisterSystemWithIDFS0_FOS_7SystemsGSqPS_7ISystem__">
+                    <a name="//apple_ref/swift/Method/unregisterSystemWithID(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FC6Entish16EntityController22unregisterSystemWithIDFS0_FOS_7SystemsGSqPS_7ISystem__">unregisterSystemWithID(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Unregisters the system with the given ID, if one exists.  </p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">unregisterSystemWithID</span><span class="p">(</span><span class="nv">systemID</span><span class="p">:</span><span class="kt">Systems</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ISystem</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="result-description">
+                        <h4>Return Value</h4>
+                        <p class="para">The unregistered system, or <code>nil</code> if none was found.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item symbol">
+                  <div class="task-group-term">
+                    <code>
+                    <a name="/s:FC6Entish16EntityController6updateFS0_FSdT_">
+                    <a name="//apple_ref/swift/Method/update(_:)" class="dashAnchor"></a>
+                    <a class="x-instance-method Swift" href="#/s:FC6Entish16EntityController6updateFS0_FSdT_">update(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointy-thing-container"></div>
+                    <section class="section instance-method">
+                      <div class="pointy-thing"></div>
+                      <div class="abstract">
+                        <p class="para">Scene loop update method.  Call this from your scene&rsquo;s <code>update()</code> method.  It updates all entities and systems that are currently registered with the controller.</p>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+            
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="nv">currentTime</span><span class="p">:</span><span class="kt">NSTimeInterval</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p class="copyright">&copy; 2015 <a class="link" href="https://github.com/brynbellomy/Entish" target="_blank" rel="external">bryn austin bellomy</a>. All rights reserved. (Last updated: 2015-02-08)</p>
+          <p class="copyright">Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.1.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
