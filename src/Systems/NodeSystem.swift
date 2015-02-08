@@ -22,8 +22,7 @@ public class NodeSystem: ISystem
     /** The unique system ID of this system. */
     public let systemID: Systems = Systems.Node
 
-    private var entityController: EntityController?
-    private var entities = List<EntityView>()
+    private var base = SystemBase<NodeComponent, EntityView>()
 
 
     //
@@ -36,20 +35,20 @@ public class NodeSystem: ISystem
 
 
     public func didMoveToController(controller:EntityController) {
-        entityController = controller
+        base.didMoveToController(controller)
         controller.signals.update.listen(self, update)
     }
 
 
     public func willMoveFromController() {
-        entityController?.signals.update.removeListener(self)
-        entityController = nil
+        base.entityController?.signals.update.removeListener(self)
+        base.willMoveFromController()
     }
 
 
     public func update(currentTime: NSTimeInterval)
     {
-        for entityView in entities
+        for entityView in base.entities
         {
             let node = entityView.nodeComponent.node
 
@@ -67,55 +66,44 @@ public class NodeSystem: ISystem
     // MARK: - Public API
     //
 
-    public func createComponentForEntity(entity:Entity, config:Config) -> Result<IComponent>
-    {
-        return NodeComponent.build(config:config)
-                            .map { $0 as IComponent }
-    }
-
-
     public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
     {
         let nodeComponent:      NodeComponent?       = getTypedComponent(components, .Node)
         let positionComponent:  PositionComponent?   = getTypedComponent(components, .Position)
 
-        if let (node, position) = both(nodeComponent, positionComponent)
+        if let (nodeCmpt, positionCmpt) = both(nodeComponent, positionComponent)
         {
-            entities.append <| EntityView(entityID:entity.uuid, node:node, position:position)
+            // set the node's initial position to the value from the position component
+            nodeCmpt.node.position = positionCmpt.position
+
+            base.addEntityView <| EntityView(entityID:entity.uuid, node:nodeCmpt, position:positionCmpt)
             return success()
         }
-        else { return failure("NodeSystem could not get PositionComponent for entity (entityID: \(entity.uuid))") }
+        else { return failure("NodeSystem could not get some required components for entity (entityID: \(entity.uuid))") }
     }
 
 
-    public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
-    {
-        if let index = entities.find({ $0.entityID == entityID }) {
-            let removed = entities.removeAtIndex(index)
-            return removed.nodeComponent
-        }
-        return nil
+    public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent? {
+        return base.removeComponentForEntity(entityID)
     }
 
-
-    public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
-    {
-        if let index = entities.find({ $0.entityID == entityID }) {
-            return entities[index].nodeComponent
-        }
-        return nil
+    public func componentForEntity(entityID: Entity.EntityID) -> IComponent? {
+        return base.componentForEntity(entityID)
     }
 
 
 
     /** Private helper struct to keep references to other components containing data used by this system. */
-    private struct EntityView
+    private struct EntityView: ISystemEntityView
     {
         let entityID:          Entity.EntityID
+        var homeComponent:     IComponent { return nodeComponent }
+
         var nodeComponent:     NodeComponent
         var positionComponent: PositionComponent
 
-        init(entityID eid:Entity.EntityID, node n:NodeComponent, position p:PositionComponent) {
+        init(entityID eid:Entity.EntityID, node n:NodeComponent, position p:PositionComponent)
+        {
             entityID = eid
             nodeComponent = n
             positionComponent = p

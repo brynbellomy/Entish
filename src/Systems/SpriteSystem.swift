@@ -16,10 +16,10 @@ import SwiftConfig
 
 public class SpriteSystem: ISystem
 {
+    /** The unique system ID of this system. */
     public let systemID: Systems = .Sprite
-    public var entityController: EntityController?
 
-    private var entities = List<EntityView>()
+    private var base = SystemBase<SpriteComponent, EntityView>()
 
 
     //
@@ -32,25 +32,18 @@ public class SpriteSystem: ISystem
 
 
     public func didMoveToController(controller:EntityController) {
-        entityController = controller
+        base.didMoveToController(controller)
     }
 
 
     public func willMoveFromController() {
-        entityController = nil
+        base.willMoveFromController()
     }
 
 
     //
     // MARK: - Public API
     //
-
-    public func createComponentForEntity(entity:Entity, config:Config) -> Result<IComponent>
-    {
-        return SpriteComponent.build(config:config)
-                            .map { $0 as IComponent }
-    }
-
 
     public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
     {
@@ -60,41 +53,33 @@ public class SpriteSystem: ISystem
         if let (sprite, node) = both(spriteComponent, nodeComponent)
         {
             let entityView = EntityView(entityID:entity.uuid, sprite:sprite, node:node)
+            base.addEntityView(entityView)
 
             // add the `SKSpriteNode` to the `SKNode`
             node.node.addChild(sprite.spriteNode)
 
-            entities.append(entityView)
             return success()
         }
         else { return failure("SpriteSystem could not get NodeComponent for entity (entityID: \(entity.uuid))") }
     }
 
 
-    public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
-    {
-        if let index = entities.find({ $0.entityID == entityID }) {
-            let removed = entities.removeAtIndex(index)
-            return removed.nodeComponent
-        }
-        return nil
+    public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent? {
+        return base.removeComponentForEntity(entityID)
     }
 
 
-    public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
-    {
-        if let index = entities.find({ $0.entityID == entityID }) {
-            return entities[index].nodeComponent
-        }
-        return nil
+    public func componentForEntity(entityID: Entity.EntityID) -> IComponent? {
+        return base.componentForEntity(entityID)
     }
 
 
 
     /** Private helper struct to keep references to other components containing data used by this system. */
-    private struct EntityView
+    private struct EntityView: ISystemEntityView
     {
         let entityID:        Entity.EntityID
+        var homeComponent: IComponent { return spriteComponent }
 
         var spriteComponent: SpriteComponent
         var nodeComponent:   NodeComponent

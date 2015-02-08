@@ -20,7 +20,7 @@ import SwiftConfig
 public class PositionSystem: ISystem
 {
     /** The unique system ID of this system. */
-    public let systemID: Systems = Systems.Position
+    public let systemID: Systems = .Position
 
     private var entityController: EntityController?
     private var entities = List<EntityView>()
@@ -52,16 +52,15 @@ public class PositionSystem: ISystem
     public func createComponentForEntity(entity:Entity, config:Config) -> Result<IComponent>
     {
         return PositionComponent.build(config:config)
-            .map { $0 as IComponent }
+                                .map { $0 as IComponent }
     }
 
 
     public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
     {
-        let nodeComponent:      PositionComponent?       = getTypedComponent(components, .Node)
-        let positionComponent:  PositionComponent?   = getTypedComponent(components, .Position)
+        let positionComponent: PositionComponent? = getTypedComponent(components, .Position)
 
-        if let (node, position) = both(nodeComponent, positionComponent)
+        if let position = positionComponent
         {
             entities.append <| EntityView(entityID:entity.uuid, position:position)
             return success()

@@ -13,13 +13,17 @@
 		C517A8011A8588420090C7E2 /* Entish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C57C1CCF1A5B98370026462A /* Entish.framework */; };
 		C517A8071A8588F10090C7E2 /* EntishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57C1CE11A5B98370026462A /* EntishTests.swift */; };
 		C521B3831A84977A00C8F2AC /* SpriteSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C521B3821A84977A00C8F2AC /* SpriteSystem.swift */; };
+		C53097921A85CE3D00664268 /* entities.yaml in Resources */ = {isa = PBXBuildFile; fileRef = C53097911A85CE3D00664268 /* entities.yaml */; };
+		C53C734E1A85ED9C008AF0F8 /* SystemBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53C734D1A85ED9C008AF0F8 /* SystemBase.swift */; };
+		C559ED751A880756003E8578 /* environment.atlas in Resources */ = {isa = PBXBuildFile; fileRef = C559ED741A880756003E8578 /* environment.atlas */; };
 		C57C1CD51A5B98370026462A /* Entish.h in Headers */ = {isa = PBXBuildFile; fileRef = C57C1CD41A5B98370026462A /* Entish.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C58715D61A82C27A00E67958 /* PhysicsSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58715D51A82C27A00E67958 /* PhysicsSystem.swift */; };
-		C5C135A81A817B230014CE25 /* IComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C135A01A817B230014CE25 /* IComponent.swift */; };
 		C5C135AB1A817B230014CE25 /* Entish.Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C135A31A817B230014CE25 /* Entish.Common.swift */; };
 		C5C135AD1A817B230014CE25 /* EntityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C135A51A817B230014CE25 /* EntityController.swift */; };
-		C5C135AE1A817B230014CE25 /* ISystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C135A71A817B230014CE25 /* ISystem.swift */; };
 		C5C135B01A817BAF0014CE25 /* NodeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C135AF1A817BAF0014CE25 /* NodeSystem.swift */; };
+		C5CA7BE61A873C9600FC528D /* EntityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CA7BE51A873C9600FC528D /* EntityFactory.swift */; };
+		C5CA7BE81A873D2B00FC528D /* test-components.yaml in Resources */ = {isa = PBXBuildFile; fileRef = C5CA7BE71A873D2B00FC528D /* test-components.yaml */; };
+		C5CA7BEA1A873ED200FC528D /* ComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CA7BE91A873ED200FC528D /* ComponentTests.swift */; };
 		C5E89CDC1A82C60200936CF3 /* XEventComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E89CD51A82C60200936CF3 /* XEventComponent.swift */; };
 		C5E89CDD1A82C60200936CF3 /* ExistentialComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E89CD61A82C60200936CF3 /* ExistentialComponent.swift */; };
 		C5E89CDE1A82C60200936CF3 /* InputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E89CD71A82C60200936CF3 /* InputComponent.swift */; };
@@ -27,8 +31,10 @@
 		C5E89CE01A82C60200936CF3 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E89CD91A82C60200936CF3 /* PhysicsComponent.swift */; };
 		C5E89CE11A82C60200936CF3 /* PositionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E89CDA1A82C60200936CF3 /* PositionComponent.swift */; };
 		C5E89CE21A82C60200936CF3 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E89CDB1A82C60200936CF3 /* SpriteComponent.swift */; };
+		C5F874EC1A86D5C4004E0B51 /* IComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F874EA1A86D5C4004E0B51 /* IComponent.swift */; };
+		C5F874ED1A86D5C4004E0B51 /* ISystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F874EB1A86D5C4004E0B51 /* ISystem.swift */; };
+		C5F874F11A86D5D8004E0B51 /* ComponentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F874F01A86D5D8004E0B51 /* ComponentFactory.swift */; };
 		C5FCB4AE1A81A52900162818 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FCB4AC1A81A52900162818 /* Entity.swift */; };
-		C5FCB4AF1A81A52900162818 /* EntityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FCB4AD1A81A52900162818 /* EntityFactory.swift */; };
 		D59CF73A0D24C747C79B5D20 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC2752B14E1AFE65378E7BF /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -51,17 +57,21 @@
 		C517A7F51A85803D0090C7E2 /* ExistentialSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistentialSystem.swift; sourceTree = "<group>"; };
 		C517A7FB1A8588420090C7E2 /* EntishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntishTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C521B3821A84977A00C8F2AC /* SpriteSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteSystem.swift; sourceTree = "<group>"; };
+		C53097911A85CE3D00664268 /* entities.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = entities.yaml; sourceTree = "<group>"; };
+		C53C734D1A85ED9C008AF0F8 /* SystemBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemBase.swift; sourceTree = "<group>"; };
+		C559ED741A880756003E8578 /* environment.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = environment.atlas; sourceTree = "<group>"; };
 		C57C1CCF1A5B98370026462A /* Entish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Entish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57C1CD31A5B98370026462A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C57C1CD41A5B98370026462A /* Entish.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entish.h; sourceTree = "<group>"; };
 		C57C1CE01A5B98370026462A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C57C1CE11A5B98370026462A /* EntishTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntishTests.swift; sourceTree = "<group>"; };
 		C58715D51A82C27A00E67958 /* PhysicsSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsSystem.swift; sourceTree = "<group>"; };
-		C5C135A01A817B230014CE25 /* IComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IComponent.swift; sourceTree = "<group>"; };
 		C5C135A31A817B230014CE25 /* Entish.Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entish.Common.swift; sourceTree = "<group>"; };
 		C5C135A51A817B230014CE25 /* EntityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityController.swift; sourceTree = "<group>"; };
-		C5C135A71A817B230014CE25 /* ISystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISystem.swift; sourceTree = "<group>"; };
 		C5C135AF1A817BAF0014CE25 /* NodeSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeSystem.swift; sourceTree = "<group>"; };
+		C5CA7BE51A873C9600FC528D /* EntityFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityFactory.swift; sourceTree = "<group>"; };
+		C5CA7BE71A873D2B00FC528D /* test-components.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "test-components.yaml"; sourceTree = "<group>"; };
+		C5CA7BE91A873ED200FC528D /* ComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentTests.swift; sourceTree = "<group>"; };
 		C5E89CD51A82C60200936CF3 /* XEventComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XEventComponent.swift; sourceTree = "<group>"; };
 		C5E89CD61A82C60200936CF3 /* ExistentialComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExistentialComponent.swift; sourceTree = "<group>"; };
 		C5E89CD71A82C60200936CF3 /* InputComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputComponent.swift; sourceTree = "<group>"; };
@@ -69,8 +79,10 @@
 		C5E89CD91A82C60200936CF3 /* PhysicsComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
 		C5E89CDA1A82C60200936CF3 /* PositionComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionComponent.swift; sourceTree = "<group>"; };
 		C5E89CDB1A82C60200936CF3 /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
+		C5F874EA1A86D5C4004E0B51 /* IComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IComponent.swift; sourceTree = "<group>"; };
+		C5F874EB1A86D5C4004E0B51 /* ISystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISystem.swift; sourceTree = "<group>"; };
+		C5F874F01A86D5D8004E0B51 /* ComponentFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentFactory.swift; sourceTree = "<group>"; };
 		C5FCB4AC1A81A52900162818 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
-		C5FCB4AD1A81A52900162818 /* EntityFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityFactory.swift; sourceTree = "<group>"; };
 		F39BA8C6F869A84F22DFABBC /* Pods_EntishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7DE191DF81E219689127134 /* Pods-EntishTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntishTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EntishTests/Pods-EntishTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +170,10 @@
 			isa = PBXGroup;
 			children = (
 				C57C1CE11A5B98370026462A /* EntishTests.swift */,
+				C5CA7BE91A873ED200FC528D /* ComponentTests.swift */,
+				C53097911A85CE3D00664268 /* entities.yaml */,
+				C5CA7BE71A873D2B00FC528D /* test-components.yaml */,
+				C559ED741A880756003E8578 /* environment.atlas */,
 				C57C1CDF1A5B98370026462A /* Supporting Files */,
 			);
 			path = EntishTests;
@@ -174,11 +190,14 @@
 		C5C1359E1A817B230014CE25 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C5F874E91A86D5C4004E0B51 /* Protocols */,
 				C5FCB4AB1A81A52900162818 /* Entities */,
 				C5C135A61A817B230014CE25 /* Systems */,
 				C5C1359F1A817B230014CE25 /* Components */,
 				C5C135A31A817B230014CE25 /* Entish.Common.swift */,
+				C5CA7BE51A873C9600FC528D /* EntityFactory.swift */,
 				C5C135A51A817B230014CE25 /* EntityController.swift */,
+				C5F874F01A86D5D8004E0B51 /* ComponentFactory.swift */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -186,7 +205,6 @@
 		C5C1359F1A817B230014CE25 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C5C135A01A817B230014CE25 /* IComponent.swift */,
 				C5E89CD81A82C60200936CF3 /* NodeComponent.swift */,
 				C5E89CD91A82C60200936CF3 /* PhysicsComponent.swift */,
 				C5E89CDA1A82C60200936CF3 /* PositionComponent.swift */,
@@ -201,7 +219,7 @@
 		C5C135A61A817B230014CE25 /* Systems */ = {
 			isa = PBXGroup;
 			children = (
-				C5C135A71A817B230014CE25 /* ISystem.swift */,
+				C53C734D1A85ED9C008AF0F8 /* SystemBase.swift */,
 				C5C135AF1A817BAF0014CE25 /* NodeSystem.swift */,
 				C58715D51A82C27A00E67958 /* PhysicsSystem.swift */,
 				C517A7F31A857F2F0090C7E2 /* PositionSystem.swift */,
@@ -211,11 +229,19 @@
 			path = Systems;
 			sourceTree = "<group>";
 		};
+		C5F874E91A86D5C4004E0B51 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C5F874EA1A86D5C4004E0B51 /* IComponent.swift */,
+				C5F874EB1A86D5C4004E0B51 /* ISystem.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		C5FCB4AB1A81A52900162818 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				C5FCB4AC1A81A52900162818 /* Entity.swift */,
-				C5FCB4AD1A81A52900162818 /* EntityFactory.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -313,6 +339,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5CA7BE81A873D2B00FC528D /* test-components.yaml in Resources */,
+				C53097921A85CE3D00664268 /* entities.yaml in Resources */,
+				C559ED751A880756003E8578 /* environment.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C517A8071A8588F10090C7E2 /* EntishTests.swift in Sources */,
+				C5CA7BEA1A873ED200FC528D /* ComponentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,19 +419,21 @@
 				C5E89CE01A82C60200936CF3 /* PhysicsComponent.swift in Sources */,
 				C5E89CE21A82C60200936CF3 /* SpriteComponent.swift in Sources */,
 				C5C135AB1A817B230014CE25 /* Entish.Common.swift in Sources */,
-				C5C135AE1A817B230014CE25 /* ISystem.swift in Sources */,
 				C5E89CDE1A82C60200936CF3 /* InputComponent.swift in Sources */,
 				C5E89CE11A82C60200936CF3 /* PositionComponent.swift in Sources */,
 				C5C135AD1A817B230014CE25 /* EntityController.swift in Sources */,
-				C5C135A81A817B230014CE25 /* IComponent.swift in Sources */,
 				C5C135B01A817BAF0014CE25 /* NodeSystem.swift in Sources */,
 				C521B3831A84977A00C8F2AC /* SpriteSystem.swift in Sources */,
 				C5FCB4AE1A81A52900162818 /* Entity.swift in Sources */,
 				C517A7F61A85803D0090C7E2 /* ExistentialSystem.swift in Sources */,
+				C5F874ED1A86D5C4004E0B51 /* ISystem.swift in Sources */,
 				C58715D61A82C27A00E67958 /* PhysicsSystem.swift in Sources */,
 				C5E89CDC1A82C60200936CF3 /* XEventComponent.swift in Sources */,
+				C5F874F11A86D5D8004E0B51 /* ComponentFactory.swift in Sources */,
+				C53C734E1A85ED9C008AF0F8 /* SystemBase.swift in Sources */,
+				C5CA7BE61A873C9600FC528D /* EntityFactory.swift in Sources */,
+				C5F874EC1A86D5C4004E0B51 /* IComponent.swift in Sources */,
 				C5E89CDD1A82C60200936CF3 /* ExistentialComponent.swift in Sources */,
-				C5FCB4AF1A81A52900162818 /* EntityFactory.swift in Sources */,
 				C517A7F41A857F2F0090C7E2 /* PositionSystem.swift in Sources */,
 				C5E89CDF1A82C60200936CF3 /* NodeComponent.swift in Sources */,
 			);

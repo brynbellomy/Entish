@@ -1,0 +1,26 @@
+---
+components:
+    existential:
+        hp:     !!int 112
+        name:   samus
+
+    position:
+        position:
+            "x": !!float 42.5
+            "y": !!float -67.1
+            "z": !!float 518
+            "w": !!float -12
+
+    node:
+        update position:    false
+
+    sprite:
+        sprite node:
+            bundle class name: ComponentTests
+            texture atlas: environment
+            texture name: tree-blue
+            anchor point: {"x": !!float 0.0, "y": !!float 0.5}
+            scale:
+                width: 2
+                height: 2
+

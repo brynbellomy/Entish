@@ -28,7 +28,7 @@ public class EntityController
     public private(set) var entities = List<Entity>()
     public private(set) var systems  = Controller<Systems, ISystem>()
 
-    private var entityFactory = EntityFactory()
+    public var entityFactory = EntityFactory()
 
     public struct Signals {
         public let update = Signal<NSTimeInterval>()

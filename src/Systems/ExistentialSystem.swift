@@ -20,10 +20,9 @@ import SwiftConfig
 public class ExistentialSystem: ISystem
 {
     /** The unique system ID of this system. */
-    public let systemID: Systems = Systems.Existential
+    public let systemID: Systems = .Existential
 
-    private var entityController: EntityController?
-    private var entities = List<EntityView>()
+    private var base = SystemBase<ExistentialComponent, EntityView>()
 
 
     //
@@ -36,12 +35,12 @@ public class ExistentialSystem: ISystem
 
 
     public func didMoveToController(controller:EntityController) {
-        entityController = controller
+        base.didMoveToController(controller)
     }
 
 
     public func willMoveFromController() {
-        entityController = nil
+        base.willMoveFromController()
     }
 
 
@@ -49,50 +48,34 @@ public class ExistentialSystem: ISystem
     // MARK: - Public API
     //
 
-    public func createComponentForEntity(entity:Entity, config:Config) -> Result<IComponent>
-    {
-        return ExistentialComponent.build(config:config)
-                                   .map { $0 as IComponent }
-    }
-
-
     public func addEntity(entity: Entity, withComponents components:[IComponent]) -> Result<Void>
     {
-        let existentialComponent:  ExistentialComponent?   = getTypedComponent(components, .Existential)
-
-        if let existential = existentialComponent
+        let existentialComponent:  ExistentialComponent? = getTypedComponent(components, .Existential)
+        if let existentialCmpt = existentialComponent
         {
-            entities.append <| EntityView(entityID:entity.uuid, existential:existential)
+            base.addEntityView <| EntityView(entityID:entity.uuid, existential:existentialCmpt)
             return success()
         }
         else { return failure("ExistentialSystem could not get ExistentialComponent for entity (entityID: \(entity.uuid))") }
     }
 
 
-    public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent?
-    {
-        if let index = entities.find({ $0.entityID == entityID }) {
-            let removed = entities.removeAtIndex(index)
-            return removed.existentialComponent
-        }
-        return nil
+    public func componentForEntity(entityID: Entity.EntityID) -> IComponent? {
+        return base.componentForEntity(entityID)
     }
 
 
-    public func componentForEntity(entityID: Entity.EntityID) -> IComponent?
-    {
-        if let index = entities.find({ $0.entityID == entityID }) {
-            return entities[index].existentialComponent
-        }
-        return nil
+    public func removeComponentForEntity(entityID: Entity.EntityID) -> IComponent? {
+        return base.removeComponentForEntity(entityID)
     }
-
 
 
     /** Private helper struct to keep references to other components containing data used by this system. */
-    private struct EntityView
+    private struct EntityView: ISystemEntityView
     {
-        let entityID:          Entity.EntityID
+        let entityID: Entity.EntityID
+        var homeComponent: IComponent { return existentialComponent }
+
         var existentialComponent: ExistentialComponent
 
         init(entityID eid:Entity.EntityID, existential e:ExistentialComponent) {

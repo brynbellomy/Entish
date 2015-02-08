@@ -1,0 +1,90 @@
+---
+entity templates:
+
+-   name: Hero
+    components:
+    -   system:           position
+        position:         {x: 111, y: 222}
+
+    -   system:           existential
+        hp:               100
+
+    -   system:           node
+        node type:        Character
+        update position:  true
+
+    -   system:           physics
+        max velocity:     200
+        physics body:
+            shape:            Circle
+            radius:           30
+            dynamic:          true
+            categories:       ['hero']
+            collides with:    ['enemy', 'wall', 'environmental object']
+
+
+-   name: Dog
+    components:
+    -   system:           position
+        position:         {x: 333, y: 444}
+
+    -   system:         node
+        node type:      Character
+        max velocity:   200
+
+    -   system:         physics
+        physics body:
+            shape:          Circle
+            radius:         30
+            dynamic:        true
+            categories:     ['hero']
+            collides with:  ['enemy', 'projectile', 'wall', 'environmental object']
+
+
+-   name: Enemy
+    components:
+    -   system:         node
+        node type:      Character
+        max velocity:   200
+
+    -   system:         physics
+        physics body:
+            shape:          Circle
+            radius:         30
+            dynamic:        true
+            categories:     ['enemy']
+            collides with:  ['hero', 'projectile', 'wall', 'environmental object']
+            contact test:   ['projectile']
+
+
+
+-   name: Tree
+    components:
+    -   system:         node
+        node type:      Environment
+
+    -   system:         sprite
+        texture atlas:  environment
+        texture name:   'tree-green'
+        x scale:        2
+        y scale:        2
+
+    -   system:         physics
+        physics body:
+            shape:          Circle
+            radius:         30
+            dynamic:        false
+            categories:     ['environmental object']
+            collides with:  []
+
+    object subtypes:
+        green:
+            texture name: 'tree-green'
+        blue:
+            texture name: 'tree-blue'
+        orange:
+            texture name: 'tree-orange'
+        pink:
+            texture name: 'tree-pink'
+
+

@@ -10,7 +10,7 @@ import Foundation
 import SwiftConfig
 
 
-public protocol IComponent //, IConfigBuildable
+public protocol IComponent //: IConfigBuildable
 {
     var systemID: Systems         { get }
     var entityID: Entity.EntityID { get }

@@ -11,20 +11,29 @@ import SpriteKit
 import Entish
 import LlamaKit
 import SwiftConfig
+import Funky
 
 
-/** Represents a type that has existential traits, such as a name, a certain number of hit points, and a location in physical space. */
+/**
+    Represents a type that has existential traits, such as a name, a certain number of hit points, etc.
+ */
 public protocol IExistent: class
 {
     var existentialComponent: ExistentialComponent { get set }
 }
 
-/** A component for existential (and semi-existential) traits. */
-public class ExistentialComponent: IComponent
+
+/**
+    A component for existential (and semi-existential) traits. 
+ */
+public final class ExistentialComponent: IComponent, IConfigBuildable
 {
-    public class func build(#config:Config) -> Result<ExistentialComponent> {
-        let id = Entity.newID()
-        return success(ExistentialComponent(entityID: id))
+    public class func build(#config:Config) -> Result<ExistentialComponent>
+    {
+        return buildExistentialComponent
+                    <|  Entity.newID()
+                    <|  config.get("name")
+                    <^> config.get("hp") ?± failure("Missing key 'hp' for ExistentialComponent.")
     }
 
     public typealias HPType = Double
@@ -32,23 +41,29 @@ public class ExistentialComponent: IComponent
     public let systemID: Systems = .Existential
     public var entityID: Entity.EntityID
 
-    public var name: String = "Mishiakuwan"
-    public var HP: HPType = 100
-    //public var position = CGPointZero //? { return node?.position }
+    /** The entity's name, if any. */
+    public var name: String?
 
+    /** The number of hit points the character can lose before dying. */
+    public var HP: HPType
 
-//    public weak var node: SKNode?
-
-//    public init(node n:SKNode) {
-//        node = n
-//    }
-
-    public init(entityID eid:Entity.EntityID) {
+    /** The designated initializer. */
+    public init(entityID eid:Entity.EntityID, name n:String?, HP hp:HPType) {
         entityID = eid
+        name = n
+        HP = hp
     }
 }
 
+private func buildExistentialComponent (entityID:Entity.EntityID) (name:String?) (HP:ExistentialComponent.HPType) -> ExistentialComponent {
+    return ExistentialComponent(entityID:entityID, name:name, HP:HP)
+}
 
+
+extension ExistentialComponent: Printable, DebugPrintable {
+    public var description:      String { return "<ExistentialComponent { name = '\(name)', HP = \(HP) }>" }
+    public var debugDescription: String { return description }
+}
 
 
 
