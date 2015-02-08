@@ -3,8 +3,8 @@ PRODUCT_NAME=Entish
 XCTOOL=/usr/local/bin/xctool -scheme $(PRODUCT_NAME) -workspace $(PRODUCT_NAME).xcworkspace -reporter pretty
 
 DOCS_OUTPUT_DIR=~/projects/_swift/_docs/$(PRODUCT_NAME)
-GITHUB_URL=https://github.com/brynbellomy/Entish
-PODSPEC_PATH=./Entish.podspec
+GITHUB_URL=https://github.com/brynbellomy/$(PRODUCT_NAME)
+PODSPEC_PATH=./$(PRODUCT_NAME).podspec
 SRC_ROOT=./
 
 all: build
