@@ -1,6 +1,0 @@
-framework module YACYAML {
-  umbrella header "Pods-YACYAML-umbrella.h"
-
-  export *
-  module * { export * }
-}

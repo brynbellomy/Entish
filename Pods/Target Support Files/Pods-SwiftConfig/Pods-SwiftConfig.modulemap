@@ -1,6 +1,0 @@
-framework module SwiftConfig {
-  umbrella header "Pods-SwiftConfig-umbrella.h"
-
-  export *
-  module * { export * }
-}
