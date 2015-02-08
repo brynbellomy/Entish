@@ -2,7 +2,7 @@
 PRODUCT_NAME=Entish
 XCTOOL=/usr/local/bin/xctool -scheme $(PRODUCT_NAME) -workspace $(PRODUCT_NAME).xcworkspace -reporter pretty
 
-DOCS_OUTPUT_DIR=/tmp/docs123
+DOCS_OUTPUT_DIR=~/tmp/docs/$(PRODUCT_NAME)
 DASH_XML_FEED=http://signals.io/dash-feed.xml
 GITHUB_URL=https://github.com/brynbellomy/Entish
 PODSPEC_PATH=./Entish.podspec
@@ -13,6 +13,7 @@ all: build
 docs: $(DOCS_OUTPUT_DIR)
 
 $(DOCS_OUTPUT_DIR):
+	mkdir -p $(DOCS_OUTPUT_DIR)
 	jazzy 	-o $(DOCS_OUTPUT_DIR) \
 		    -a 'bryn austin bellomy' \
 			-u 'https://github.com/brynbellomy' \
@@ -21,6 +22,12 @@ $(DOCS_OUTPUT_DIR):
 			-g $(GITHUB_URL) \
 			--podspec $(PODSPEC_PATH) \
 			--source-directory $(SRC_ROOT)
+
+	git checkout gh-pages
+	rm -rf ./*
+	cp -R $(DOCS_OUTPUT_DIR)/* ./
+	cp -R $(DOCS_OUTPUT_DIR)/*.* ./
+
 
 build: build/Products/Debug/$(PRODUCT_NAME).framework
 
