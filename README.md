@@ -1,6 +1,13 @@
 
 # Entish
 
+[![Build Status](https://travis-ci.org/brynbellomy/Entish.svg?branch=master)](https://travis-ci.org/brynbellomy/Entish)
+[![CocoaPods](https://img.shields.io/cocoapods/v/Entish.svg?style=flat)](http://cocoadocs.org/docsets/Entish)
+[![CocoaPods](https://img.shields.io/cocoapods/p/Entish.svg?style=flat)](http://cocoadocs.org/docsets/Entish)
+[![CocoaPods](https://img.shields.io/cocoapods/l/Entish.svg?style=flat)](http://cocoadocs.org/docsets/Entish)
+[![GitHub tag](https://img.shields.io/github/tag/brynbellomy/Entish.svg?style=flat)]()
+
+
 README coming soon.
 
 # install
